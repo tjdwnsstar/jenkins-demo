@@ -5,8 +5,8 @@ pipeline {
         stage('환경 확인') {
             steps {
                 echo '=== 환경 확인 단계 ==='
-                sh 'pwd'
-                sh 'ls -la'
+                sh 'node --version'
+                sh 'npm --version'
             }
         }
         
@@ -17,20 +17,24 @@ pipeline {
             }
         }
         
-        stage('빌드 시뮬레이션') {
+        stage('의존성 설치') {
             steps {
-                echo '=== 빌드 실행 중 ==='
-                sh 'echo "애플리케이션 빌드 완료!"'
-                sh 'date'
+                echo '=== NPM 패키지 설치 ==='
+                sh 'npm install'
             }
         }
         
-        stage('테스트 시뮬레이션') {
+        stage('테스트') {
             steps {
-                echo '=== 테스트 실행 중 ==='
-                sh 'echo "테스트 1: 통과"'
-                sh 'echo "테스트 2: 통과"'
-                sh 'echo "모든 테스트 통과!"'
+                echo '=== 테스트 실행 ==='
+                sh 'npm test'
+            }
+        }
+        
+        stage('빌드') {
+            steps {
+                echo '=== 애플리케이션 빌드 ==='
+                sh 'echo "빌드 완료!"'
             }
         }
         
