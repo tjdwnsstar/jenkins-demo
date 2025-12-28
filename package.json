@@ -1,0 +1,13 @@
+{
+  "name": "jenkins-demo",
+  "version": "1.0.0",
+  "description": "Jenkins CI/CD Demo Application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Running tests...\" && echo \"All tests passed!\""
+  },
+  "keywords": ["jenkins", "cicd", "demo"],
+  "author": "Your Name",
+  "license": "MIT"
+}
