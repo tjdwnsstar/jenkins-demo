@@ -1,0 +1,12 @@
+FROM Jenkins/Jenkins:lts
+
+USER root
+
+# Node.js 18 설치
+RUN curl –fsSL https://deb.nodesource.com/setup_18.x | bash - && \
+    apt-get install –y nodejs && \
+    node –version && \
+    npm –version
+
+USER Jenkins
+
